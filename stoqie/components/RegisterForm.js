@@ -1,5 +1,6 @@
-import { Input, Button } from '@nextui-org/react';
-import { useState } from 'react';
+// components/RegisterForm.js
+import React, { useState } from 'react';
+import { TextField, Button } from '@mui/material';
 
 export default function RegisterForm() {
   const [form, setForm] = useState({
@@ -30,15 +31,31 @@ export default function RegisterForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="name" label="Name" onChange={handleChange} value={form.name} />
-      <Input name="email" label="Email" onChange={handleChange} value={form.email} />
-      <Input.Password
+      <TextField
+        name="name"
+        label="Name"
+        variant="outlined"
+        onChange={handleChange}
+        value={form.name}
+      />
+      <TextField
+        name="email"
+        label="Email"
+        variant="outlined"
+        onChange={handleChange}
+        value={form.email}
+      />
+      <TextField
         name="password"
         label="Password"
+        type="password"
+        variant="outlined"
         onChange={handleChange}
         value={form.password}
       />
-      <Button type="submit">Register</Button>
+      <Button type="submit" variant="contained" color="primary">
+        Register
+      </Button>
     </form>
   );
 }

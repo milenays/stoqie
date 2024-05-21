@@ -1,8 +1,6 @@
-// pages/api/register.js
-
 import dbConnect from '../../lib/mongodb';
 import User from '../../models/User';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs'; // bcrypt yerine bcryptjs kullanıyoruz
 
 export default async function handler(req, res) {
   const { method } = req;
