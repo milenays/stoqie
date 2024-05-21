@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@nextui-org/react": "^2.3.6",
+    "mongoose": "^8.4.0"
+  }
+}
