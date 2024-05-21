@@ -1,6 +1,6 @@
 import dbConnect from '../../lib/mongodb';
 import User from '../../models/User';
-import bcrypt from 'bcryptjs'; // bcrypt yerine bcryptjs kullanıyoruz
+import bcrypt from 'bcryptjs';
 
 export default async function handler(req, res) {
   const { method } = req;
