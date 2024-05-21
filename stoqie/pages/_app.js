@@ -1,5 +1,3 @@
-// pages/_app.js
-
 import React from 'react';
 import { NextUIProvider } from '@nextui-org/react';
 
