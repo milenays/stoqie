@@ -1,7 +1,6 @@
-// pages/_app.js
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider, useSession } from 'next-auth/react';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-import Navbar from '../components/Navbar'; // Add this line to import the Navbar component
+import Navbar from '../components/Navbar'; // Navbar bileşeni eklendi
 
 const theme = createTheme({
   palette: {
@@ -15,12 +14,14 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }) {
+  const { status } = useSession();
+
   return (
     <SessionProvider session={pageProps.session}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Navbar /> {/* Add this line to include the Navbar at the top of the page */}
-        <Component {...pageProps} />
+        <Navbar /> {/* Navbar eklendi */}
+        {status === 'loading' ? <div>Loading...</div> : <Component {...pageProps} />}
       </ThemeProvider>
     </SessionProvider>
   );

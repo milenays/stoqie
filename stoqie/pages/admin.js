@@ -1,6 +1,7 @@
 // pages/admin.js
 import React, { useEffect } from 'react';
 import { useSession, getSession } from 'next-auth/react';
+import UserList from '../components/UserList';
 
 export default function AdminPage() {
   const { data: session } = useSession();
@@ -19,7 +20,7 @@ export default function AdminPage() {
     <div>
       <h1>Admin Panel</h1>
       <p>Welcome, {session.user.email}</p>
-      {/* Admin panel içeriği buraya eklenir */}
+      <UserList />
     </div>
   );
 }
