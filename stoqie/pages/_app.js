@@ -1,4 +1,4 @@
-import { SessionProvider, useSession } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import Navbar from '../components/Navbar'; // Navbar bileşeni eklendi
 
