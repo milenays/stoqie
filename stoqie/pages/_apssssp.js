@@ -14,25 +14,17 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }) {
+  const { status } = useSession();
+
   return (
     <SessionProvider session={pageProps.session}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Navbar /> {/* Navbar eklendi */}
-        <Content Component={Component} pageProps={pageProps} />
+        {status === 'loading' ? <div>Loading...</div> : <Component {...pageProps} />}
       </ThemeProvider>
     </SessionProvider>
   );
-}
-
-function Content({ Component, pageProps }) {
-  const { status } = useSession();
-
-  if (status === 'loading') {
-    return <div>Loading...</div>;
-  }
-
-  return <Component {...pageProps} />;
 }
 
 export default MyApp;
